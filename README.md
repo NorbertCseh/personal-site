@@ -43,3 +43,14 @@ npm run build
 ## Hosting
 
 The project is hosted on [www.ncseh.hu](https://www.ncseh.hu).
+
+### Deployment
+
+This project includes a GitHub Action for automatic deployment to GitHub Pages. Whenever you push to the `main` branch,
+the site is automatically built and deployed.
+
+To enable this on GitHub:
+
+1. Go to your repository **Settings**.
+2. Navigate to **Pages** in the sidebar.
+3. Under **Build and deployment** > **Source**, select **GitHub Actions**.

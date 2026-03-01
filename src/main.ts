@@ -1,9 +1,58 @@
-// Add smooth scrolling and interactive elements
-document.addEventListener('DOMContentLoaded', () => {
-  // Add fade-in animation for sections
-  const sections = document.querySelectorAll('.cv-section');
+type Theme = 'light' | 'dark';
 
-  const observerOptions = {
+const STORAGE_KEY = 'theme';
+
+/**
+ * Initializes the theme toggle functionality.
+ */
+function initThemeToggle(): void {
+  const themeToggle = document.getElementById(
+    'theme-toggle',
+  ) as HTMLButtonElement | null;
+  if (!themeToggle) return;
+
+  const getSystemTheme = (): Theme =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+
+  const applyTheme = (theme: Theme): void => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+
+    // Accessibility updates
+    themeToggle.setAttribute(
+      'aria-pressed',
+      theme === 'dark' ? 'true' : 'false',
+    );
+    themeToggle.setAttribute(
+      'aria-label',
+      `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`,
+    );
+  };
+
+  // Initial load
+  const savedTheme = localStorage.getItem(STORAGE_KEY) as Theme | null;
+  const initialTheme = savedTheme || getSystemTheme();
+  applyTheme(initialTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute(
+      'data-theme',
+    ) as Theme;
+    const newTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+  });
+}
+
+/**
+ * Initializes the scroll reveal animation for sections.
+ */
+function initSectionReveal(): void {
+  const sections = document.querySelectorAll('.cv-section');
+  if (sections.length === 0) return;
+
+  const observerOptions: IntersectionObserverInit = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px',
   };
@@ -12,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        // Housekeeping: stop observing once visible
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
@@ -19,35 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach((section) => {
     observer.observe(section);
   });
+}
 
-  // Theme toggle functionality
-  const themeToggle = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
+/**
+ * Initializes the print button functionality.
+ */
+function initPrint(): void {
+  const printButton = document.querySelector(
+    '.print-button',
+  ) as HTMLButtonElement | null;
+  if (!printButton) return;
 
-  if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
+  printButton.addEventListener('click', () => {
+    window.print();
+  });
+}
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      let theme = document.documentElement.getAttribute('data-theme');
-      if (theme === 'dark') {
-        theme = 'light';
-      } else {
-        theme = 'dark';
-      }
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    });
-  }
-
-  // Add print button functionality
-  const printButton = document.querySelector('.print-button');
-  if (printButton) {
-    printButton.addEventListener('click', () => {
-      window.print();
-    });
-  }
+// Run initializations
+document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
+  initSectionReveal();
+  initPrint();
 });

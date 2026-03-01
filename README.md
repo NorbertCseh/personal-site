@@ -51,6 +51,7 @@ the site is automatically built and deployed.
 
 To enable this on GitHub:
 
-1. Go to your repository **Settings**.
+1. Go to your repository **Settings** on GitHub.
 2. Navigate to **Pages** in the sidebar.
 3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4. Push to `main` branch to trigger the deployment.

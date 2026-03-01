@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/webstorm-icon-logo.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Your Name - CV</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+<main id="app">
+    <header class="cv-header">
+        <button aria-label="Toggle dark mode" class="theme-toggle" id="theme-toggle">
+            <svg class="sun-icon" viewBox="0 0 24 24">
+                <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"></path>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24">
+                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
+            </svg>
+        </button>
+        <h1>Your Name</h1>
+        <p class="subtitle">Software Developer</p>
+        <div class="contact-info">
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+            <span>|</span>
+            <a href="tel:+1234567890">+123 456 7890</a>
+            <span>|</span>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            <span>|</span>
+            <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+        </div>
+    </header>
+
+    <section class="cv-section">
+        <h2>About Me</h2>
+        <p>Passionate software developer with expertise in modern web technologies. I enjoy building elegant solutions
+            to complex problems and continuously learning new skills.</p>
+    </section>
+
+    <section class="cv-section">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>Senior Developer</h3>
+            <p class="company">Company Name | 2022 - Present</p>
+            <ul>
+                <li>Led development of key features using TypeScript and React</li>
+                <li>Mentored junior developers and conducted code reviews</li>
+                <li>Improved application performance by 40%</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <h3>Software Developer</h3>
+            <p class="company">Previous Company | 2019 - 2022</p>
+            <ul>
+                <li>Developed and maintained web applications</li>
+                <li>Collaborated with cross-functional teams</li>
+                <li>Implemented automated testing strategies</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <p>JavaScript, TypeScript, Python, HTML, CSS</p>
+            </div>
+            <div class="skill-category">
+                <h3>Frameworks</h3>
+                <p>React, Vue, Node.js, Express</p>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <p>Git, Docker, VS Code, WebStorm</p>
+            </div>
+            <div class="skill-category">
+                <h3>Other</h3>
+                <p>Agile, REST APIs, Testing, CI/CD</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>Bachelor's Degree in Computer Science</h3>
+            <p class="company">University Name | 2015 - 2019</p>
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>Projects</h2>
+        <div class="project-item">
+            <h3>Project Name</h3>
+            <p>Description of an interesting project you've worked on. Include technologies used and outcomes
+                achieved.</p>
+        </div>
+        <div class="project-item">
+            <h3>Another Project</h3>
+            <p>Another project description showcasing your skills and accomplishments.</p>
+        </div>
+    </section>
+</main>
+<script src="/src/main.ts" type="module"></script>
+</body>
+</html>

@@ -37,7 +37,7 @@
 }
 
 :root {
-    font-family: var(--font-sans);
+    font-family: var(--font-sans), serif;
     color: var(--text-color);
     background-color: var(--bg-color);
 }
@@ -112,6 +112,16 @@ body {
 
 .moon-icon {
     display: block;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .cv-header h1 {

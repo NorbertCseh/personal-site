@@ -92,10 +92,15 @@ body {
     position: relative;
 }
 
-.theme-toggle {
+.header-actions {
     position: absolute;
     top: 20px;
     right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-toggle, .print-button {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     border-radius: 50%;
@@ -106,14 +111,15 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover, .print-button:hover {
     background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
-.theme-toggle svg {
+.theme-toggle svg, .print-button svg {
     width: 20px;
     height: 20px;
     fill: currentColor;
@@ -259,6 +265,16 @@ body {
     line-height: 1.8;
 }
 
+.thm-badge {
+    margin-top: 20px;
+}
+
+.thm-badge iframe {
+    width: 350px;
+    height: 100px;
+    overflow: hidden;
+}
+
 @media print {
     body {
         background: white;
@@ -298,7 +314,7 @@ body {
         content: "";
     }
 
-    .theme-toggle {
+    .theme-toggle, .print-button, .thm-badge {
         display: none !important;
     }
 

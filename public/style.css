@@ -280,6 +280,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
     gap: 8px;
     padding: 20px 40px;
     color: var(--text-muted);

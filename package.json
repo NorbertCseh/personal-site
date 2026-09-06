@@ -1,16 +1,17 @@
 {
-  "name": "untitled",
+  "name": "personal-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
+    "@astrojs/check": "^0.9.10",
+    "astro": "latest",
     "prettier": "^3.3.1",
-    "vite": "^5.2.0"
+    "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,18 @@
+---
+import CvLayout from '../layouts/CvLayout.astro';
+import Header from '../components/Header.astro';
+import ResumeSections from '../components/ResumeSections.astro';
+import { resume } from '../data/resume';
+
+const pageTitle = `${resume.name} | Senior SDET`;
+const description = 'Senior Software Developer in Test specializing in QA automation and AI-driven testing strategies.';
+const siteUrl = 'https://www.ncseh.hu';
+---
+<CvLayout title={pageTitle} description={description} url={siteUrl}>
+  <main id="app">
+    <Header resume={resume} />
+    <ResumeSections resume={resume} />
+  </main>
+</CvLayout>
+
+<script src="../scripts/interactions.ts"></script>

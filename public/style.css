@@ -223,11 +223,11 @@ body {
     margin-bottom: 15px;
 }
 
-.experience-item, .education-item, .project-item {
+.experience-item {
     margin-bottom: 30px;
 }
 
-.experience-item:last-child, .project-item:last-child {
+.experience-item:last-child {
     margin-bottom: 0;
 }
 
@@ -271,6 +271,7 @@ body {
 
 .thm-badge iframe {
     width: 350px;
+    max-width: 100%;
     height: 100px;
     overflow: hidden;
 }
@@ -394,7 +395,7 @@ body {
         gap: 5px;
     }
 
-    .contact-info span {
+    .contact-separator {
         display: none;
     }
 

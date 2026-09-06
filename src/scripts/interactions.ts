@@ -12,14 +12,22 @@ const applyTheme = (theme: Theme): void => {
   themeToggle?.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
 };
 
-const savedTheme = localStorage.getItem(STORAGE_KEY);
+let savedTheme: string | null = null;
+try {
+  savedTheme = localStorage.getItem(STORAGE_KEY);
+} catch {
+  savedTheme = null;
+}
 const initialTheme: Theme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : getSystemTheme();
 applyTheme(initialTheme);
 
 themeToggle?.addEventListener('click', () => {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   const nextTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
-  localStorage.setItem(STORAGE_KEY, nextTheme);
+  try {
+    localStorage.setItem(STORAGE_KEY, nextTheme);
+  } catch {
+  }
   applyTheme(nextTheme);
 });
 

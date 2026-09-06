@@ -25,12 +25,12 @@ const { resume } = Astro.props;
   <div class="contact-info">
     {resume.contact.map((contact, index) => (
       <Fragment>
-        {index > 0 && <span aria-hidden="true">|</span>}
+        {index > 0 && <span class="contact-separator" aria-hidden="true">|</span>}
         <a href={contact.href} target={contact.external ? '_blank' : undefined} rel={contact.external ? 'noopener noreferrer' : undefined}>{contact.label}</a>
       </Fragment>
     ))}
-    <span aria-hidden="true">|</span>
-    <span>{resume.location}</span>
+    <span class="contact-separator" aria-hidden="true">|</span>
+    <span class="contact-location">{resume.location}</span>
   </div>
   <div class="thm-badge">
     <iframe title={resume.badge.title} src={resume.badge.src} style="border:none;"></iframe>

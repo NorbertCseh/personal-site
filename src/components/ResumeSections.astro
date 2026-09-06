@@ -17,7 +17,7 @@ const { resume } = Astro.props;
   {resume.sections.experience.entries.map((experience) => (
     <article class="experience-item">
       <h3>{experience.role}</h3>
-      <p class="meta company">{experience.company} | {experience.period}</p>
+      <p class="company">{experience.company} | {experience.period}</p>
       <ul>
         {experience.highlights.map((highlight) => <li>{highlight}</li>)}
       </ul>

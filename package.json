@@ -10,8 +10,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "astro": "latest",
-    "prettier": "^3.3.1",
+    "astro": "7.3.1",
     "typescript": "^5.9.3"
   }
 }

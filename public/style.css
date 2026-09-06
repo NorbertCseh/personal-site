@@ -275,6 +275,33 @@ body {
     overflow: hidden;
 }
 
+.site-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 40px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 @media print {
     body {
         background: white;
@@ -316,6 +343,10 @@ body {
 
     .theme-toggle, .print-button, .thm-badge {
         display: none !important;
+    }
+
+    .site-footer {
+        display: none;
     }
 
     .cv-section {
@@ -367,5 +398,9 @@ body {
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        padding: 20px;
     }
 }

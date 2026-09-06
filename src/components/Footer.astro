@@ -1,0 +1,17 @@
+---
+import type { Resume } from '../data/resume';
+
+interface Props {
+  resume: Resume;
+}
+
+const { resume } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <p>© {year} {resume.name}</p>
+  <span aria-hidden="true">·</span>
+  <p>Created with <a href="https://astro.build/" rel="noopener noreferrer" target="_blank">Astro</a></p>
+  <span aria-hidden="true">·</span>
+  <a href="https://github.com/NorbertCseh/personal-site" rel="noopener noreferrer" target="_blank">View source</a>
+</footer>

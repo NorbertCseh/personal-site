@@ -1,6 +1,7 @@
 ---
 import CvLayout from '../layouts/CvLayout.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import ResumeSections from '../components/ResumeSections.astro';
 import { resume } from '../data/resume';
 
@@ -12,6 +13,7 @@ const siteUrl = 'https://www.ncseh.hu';
   <main id="app">
     <Header resume={resume} />
     <ResumeSections resume={resume} />
+    <Footer resume={resume} />
   </main>
 </CvLayout>
 

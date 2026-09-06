@@ -1,6 +1,6 @@
 # Norbert Cseh's CV
 
-This project is a modern, responsive, and interactive CV/Resume built with TypeScript, HTML, and CSS.
+This project is a modern, responsive, and interactive CV/Resume built with Astro, TypeScript, and CSS.
 
 ## Features
 
@@ -20,4 +20,15 @@ This project is a modern, responsive, and interactive CV/Resume built with TypeS
 
 ## Development
 
-This project is built using [Vite](https://vitejs.dev/).
+This project is built using [Astro](https://astro.build/). The CV content lives in `src/data/resume.ts`, and the Astro page renders the site from that single source.
+
+Install dependencies and start the development server with:
+
+```sh
+npm install
+npm run dev
+```
+
+Create the production output with `npm run build` and preview it with `npm run preview`.
+
+Pushes to `main` build and deploy `dist` to GitHub Pages. Pull requests run the same build as a check. The custom domain is retained through `public/CNAME`.

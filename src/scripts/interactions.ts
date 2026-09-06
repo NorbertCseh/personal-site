@@ -2,6 +2,7 @@ type Theme = 'light' | 'dark';
 
 const STORAGE_KEY = 'theme';
 const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+document.documentElement.classList.add('js-enabled');
 
 const getSystemTheme = (): Theme =>
   window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -9,7 +10,10 @@ const getSystemTheme = (): Theme =>
 const applyTheme = (theme: Theme): void => {
   document.documentElement.setAttribute('data-theme', theme);
   themeToggle?.setAttribute('aria-pressed', String(theme === 'dark'));
-  themeToggle?.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+  themeToggle?.setAttribute(
+    'aria-label',
+    `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`,
+  );
 };
 
 let savedTheme: string | null = null;
@@ -18,7 +22,10 @@ try {
 } catch {
   savedTheme = null;
 }
-const initialTheme: Theme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : getSystemTheme();
+const initialTheme: Theme =
+  savedTheme === 'dark' || savedTheme === 'light'
+    ? savedTheme
+    : getSystemTheme();
 applyTheme(initialTheme);
 
 themeToggle?.addEventListener('click', () => {
@@ -26,17 +33,21 @@ themeToggle?.addEventListener('click', () => {
   const nextTheme: Theme = currentTheme === 'dark' ? 'light' : 'dark';
   try {
     localStorage.setItem(STORAGE_KEY, nextTheme);
-  } catch {
-  }
+  } catch {}
   applyTheme(nextTheme);
 });
 
-document.querySelector<HTMLButtonElement>('.print-button')?.addEventListener('click', () => {
-  window.print();
-});
+document
+  .querySelector<HTMLButtonElement>('.print-button')
+  ?.addEventListener('click', () => {
+    window.print();
+  });
 
 const sections = document.querySelectorAll<HTMLElement>('.cv-section');
-if ('IntersectionObserver' in window) {
+if (
+  'IntersectionObserver' in window &&
+  !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

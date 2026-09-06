@@ -3,10 +3,13 @@ interface Props {
   title: string;
   description: string;
   url: string;
+  structuredData?: object;
 }
 
-const { title, description, url } = Astro.props;
+const { title, description, url, structuredData } = Astro.props;
+const socialImage = new URL('/profile.webp', url).href;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,6 +23,20 @@ const { title, description, url } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    {
+      structuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
     <title>{title}</title>
   </head>
   <body>

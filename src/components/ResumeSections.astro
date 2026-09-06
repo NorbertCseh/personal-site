@@ -7,6 +7,7 @@ interface Props {
 
 const { resume } = Astro.props;
 ---
+
 <section class="cv-section" id={resume.sections.about.id}>
   <h2>{resume.sections.about.title}</h2>
   <p>{resume.sections.about.content}</p>
@@ -14,25 +15,33 @@ const { resume } = Astro.props;
 
 <section class="cv-section" id={resume.sections.experience.id}>
   <h2>{resume.sections.experience.title}</h2>
-  {resume.sections.experience.entries.map((experience) => (
-    <article class="experience-item">
-      <h3>{experience.role}</h3>
-      <p class="company">{experience.company} | {experience.period}</p>
-      <ul>
-        {experience.highlights.map((highlight) => <li>{highlight}</li>)}
-      </ul>
-    </article>
-  ))}
+  {
+    resume.sections.experience.entries.map((experience) => (
+      <article class="experience-item">
+        <h3>{experience.role}</h3>
+        <p class="company">
+          {experience.company} | {experience.period}
+        </p>
+        <ul>
+          {experience.highlights.map((highlight) => (
+            <li>{highlight}</li>
+          ))}
+        </ul>
+      </article>
+    ))
+  }
 </section>
 
 <section class="cv-section" id={resume.sections.skills.id}>
   <h2>{resume.sections.skills.title}</h2>
   <div class="skills-grid">
-    {resume.sections.skills.groups.map((group) => (
-      <div class="skill-category">
-        <h3>{group.name}</h3>
-        <p>{group.skills}</p>
-      </div>
-    ))}
+    {
+      resume.sections.skills.groups.map((group) => (
+        <div class="skill-category">
+          <h3>{group.name}</h3>
+          <p>{group.skills}</p>
+        </div>
+      ))
+    }
   </div>
 </section>

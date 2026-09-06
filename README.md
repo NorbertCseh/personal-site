@@ -30,5 +30,6 @@ npm run dev
 ```
 
 Create the production output with `npm run build` and preview it with `npm run preview`.
+Use `npm run format:check` to verify formatting, or `npm run format` to apply Prettier.
 
 Pushes to `main` build and deploy `dist` to GitHub Pages. Pull requests run the same build as a check. The custom domain is retained through `public/CNAME`.

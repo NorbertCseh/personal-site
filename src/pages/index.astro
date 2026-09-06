@@ -6,10 +6,38 @@ import ResumeSections from '../components/ResumeSections.astro';
 import { resume } from '../data/resume';
 
 const pageTitle = `${resume.name} | Senior SDET`;
-const description = 'Senior Software Developer in Test specializing in QA automation and AI-driven testing strategies.';
-const siteUrl = 'https://www.ncseh.hu';
+const description =
+  'Senior Software Developer in Test specializing in QA automation and AI-driven testing strategies.';
+const siteUrl = import.meta.env.SITE ?? 'https://www.ncseh.hu';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: pageTitle,
+  url: siteUrl,
+  mainEntity: {
+    '@type': 'Person',
+    name: resume.name,
+    jobTitle: resume.title,
+    url: siteUrl,
+    image: new URL(resume.image.src, siteUrl).href,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: resume.location,
+    },
+    sameAs: resume.contact
+      .filter((contact) => contact.external)
+      .map((contact) => contact.href),
+  },
+};
 ---
-<CvLayout title={pageTitle} description={description} url={siteUrl}>
+
+<CvLayout
+  title={pageTitle}
+  description={description}
+  url={siteUrl}
+  structuredData={structuredData}
+>
+  <a class="skip-link" href="#about">Skip to main content</a>
   <main id="app">
     <Header resume={resume} />
     <ResumeSections resume={resume} />
